@@ -12,7 +12,8 @@ function timer()
     count = count-1;
     if (count <= 0)
     {
-        PlaySound("beep");
+        //PlaySound("beep");
+		playBeep();
         count =30;
     }
     document.getElementById("timer").innerHTML=count +" secs";
@@ -24,7 +25,8 @@ function runTimer()
 	if(runCount <=1)
 	{
 		//navigator.notification.vibrate();
-		PlaySound("beep1");
+		//PlaySound("beep1");
+		playBeep();
 		clearInterval(runCounter);
 		runCount=60;
 		walkCounter = setInterval(walkTimer,1000);
@@ -38,7 +40,8 @@ function walkTimer()
 	if(walkCount <=1)
 	{
 		//navigator.notification.vibrate();
-		PlaySound("beep3");
+		//PlaySound("beep3");
+		playBeep();
 		clearInterval(walkCounter);
 		walkCount=90;
 		runCounter = setInterval(runTimer,1000);
@@ -51,7 +54,8 @@ function totalTimer()
 	totalcount = totalcount -1;
 	if(totalcount<=599 || totalcount <=1)
 	{
-		playSound("beep2");
+		//playSound("beep2");
+		playBeep();
 		clearInterval(walkCounter);
 		clearInterval(runCounter);
 		clearInterval(Counter);
@@ -61,7 +65,11 @@ function totalTimer()
 }
 
 
-
+function playBeep()
+{
+	var beepAudio = document.getElementById('audio')[0];
+	beepAudio.play();
+}
 
 
 function PlaySound(soundObj)
