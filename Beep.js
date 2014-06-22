@@ -23,7 +23,7 @@ function runTimer()
 	runCount = runCount-1;
 	if(runCount <=1)
 	{
-		navigator.notification.vibrate();
+		//navigator.notification.vibrate();
 		PlaySound("beep1");
 		clearInterval(runCounter);
 		runCount=60;
@@ -37,7 +37,7 @@ function walkTimer()
 	walkCount = walkCount-1;
 	if(walkCount <=1)
 	{
-		navigator.notification.vibrate();
+		//navigator.notification.vibrate();
 		PlaySound("beep3");
 		clearInterval(walkCounter);
 		walkCount=90;
@@ -66,7 +66,10 @@ function totalTimer()
 
 function PlaySound(soundObj)
 {
-	navigator.notification.beep();
-    var sound = document.getElementById(soundObj);
-    sound.Play();
+	var snd = new Audio("beep.wav");
+	snd.play();
+	//navigator.notification.beep();
+  //  var sound = document.getElementById(soundObj);
+ //   sound.Play();
 }
+
